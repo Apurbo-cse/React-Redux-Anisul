@@ -1,65 +1,77 @@
-const { createStore } = require("redux")
+// state - count:0
+// action - increment, decrement, reset
+// reducer
+// store
 
-// Defining constant
+const { createStore } = require("redux");
+
+
 const INCREMENT = 'Increment';
 const DECREMENT = 'Decrement';
+const RESET = 'Reset';
 
-
-// state
-const initialCounterState = {
-    count: 0,
+const initialState = {
+    count: 0
 }
 
-
-// action - Object - type, payload
-
-const IncrementCounter = () => {
+const incrementActions = () => {
     return {
-        type: INCREMENT,
+        type: INCREMENT
     }
 }
 
-const DecrementCounter = () => {
+const decrementActions = () => {
     return {
-        type: DECREMENT,
+        type: DECREMENT
+    }
+}
+
+const resetActions = () => {
+    return {
+        type: RESET
     }
 }
 
 
-// Create reducer for counter action
-const CounterReducer = (state = initialCounterState, action) => {
-
+// Creating Reducer
+const counterReducer = (state = initialState, action) => {
     switch (action.type) {
-
         case INCREMENT:
-            return{
+            return {
                 ...state,
-                count : state.count + 1
+                count: state.count + 1
             }
 
         case DECREMENT:
-            return{
+            return {
                 ...state,
-                count : state.count - 1
+                count: state.count - 1
             }
 
+        case RESET:
+            return {
+                ...state,
+                count: 0
+            }
+
+
         default:
-            break;
+            state;
     }
 }
 
 
+// store
 
-// Store  - getState(), dispatch(), subscribe()
-const store = createStore(CounterReducer)
+const store = createStore(counterReducer)
 
-
-store.subscribe(()=>{
-    console.log('object :>> ', store.getState());
+store.subscribe(() =>{
+    console.log('Object>>', store.getState())
 })
 
-
-// dispatch action
-store.dispatch(IncrementCounter())
-
-store.dispatch(DecrementCounter())
+store.dispatch(incrementActions())
+store.dispatch(incrementActions())
+store.dispatch(incrementActions())
+store.dispatch(decrementActions())
+store.dispatch(resetActions())
+store.dispatch(incrementActions())
