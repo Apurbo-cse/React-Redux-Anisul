@@ -1,44 +1,47 @@
 // Defining constant
-const INCREMENT ='Increment';
-const DECREMENT ='Decrement';
-const ADD_USER ='Add_User';
+const INCREMENT = 'Increment';
+const DECREMENT = 'Decrement';
 
 
 // state
 const initialCounterState = {
-    count:0,
+    count: 0,
 }
-
-const initialUsersState = {
-    users:[  {name: 'John'}  ]
-}
-
-
 
 
 // action - Object - type, payload
 
-// Intcrement Counter
-const IncrementCounterAction =() =>{
+const IncrementCounterAction = () => {
     return {
         type: INCREMENT,
     }
 }
 
-
-// Decrement Counter
-const DecrementCounterAction =() =>{
+const DecrementCounterAction = () => {
     return {
         type: DECREMENT,
     }
 }
 
 
-// add User 
-const AddUser =() =>{
-    return {
-        type: ADD_USER,
-        payload:{name:"Apurbo"}
+// Create reducer for counter action
+const CounterReducer = (state = initialCounterState, action) => {
+
+    switch (action.type) {
+
+        case INCREMENT:
+            return{
+                ...state,
+                count : state.count + 1
+            }
+
+        case DECREMENT:
+            return{
+                ...state,
+                count : state.count - 1
+            }
+            
+        default:
+            break;
     }
 }
-
