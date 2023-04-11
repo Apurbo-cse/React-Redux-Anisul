@@ -1,3 +1,5 @@
+const { createStore } = require("redux")
+
 // Defining constant
 const INCREMENT = 'Increment';
 const DECREMENT = 'Decrement';
@@ -11,13 +13,13 @@ const initialCounterState = {
 
 // action - Object - type, payload
 
-const IncrementCounterAction = () => {
+const IncrementCounter = () => {
     return {
         type: INCREMENT,
     }
 }
 
-const DecrementCounterAction = () => {
+const DecrementCounter = () => {
     return {
         type: DECREMENT,
     }
@@ -40,8 +42,24 @@ const CounterReducer = (state = initialCounterState, action) => {
                 ...state,
                 count : state.count - 1
             }
-            
+
         default:
             break;
     }
 }
+
+
+
+// Store  - getState(), dispatch(), subscribe()
+const store = createStore(CounterReducer)
+
+
+store.subscribe(()=>{
+    console.log('object :>> ', store.getState());
+})
+
+
+// dispatch action
+store.dispatch(IncrementCounter())
+
+store.dispatch(DecrementCounter())
