@@ -8,10 +8,10 @@ const { createStore } = require("redux");
 
 const INCREMENT = 'Increment';
 const DECREMENT = 'Decrement';
+const RESET = 'Reset';
 const INCREMENT_BY_VALUE = 'IncrementByValue';
 
 
-INCREMENT_BY_VALUE
 
 const initialState = {
     count: 0
@@ -71,7 +71,6 @@ const counterReducer = (state = initialState, action) => {
                 count: state.count + action.payload,
             }
 
-
         default:
             state;
     }
@@ -86,10 +85,10 @@ store.subscribe(() => {
     console.log('Object>>', store.getState())
 })
 
-// store.dispatch(incrementActions())
-// store.dispatch(incrementActions())
-// store.dispatch(incrementActions())
-// store.dispatch(decrementActions())
-// store.dispatch(resetActions())
-// store.dispatch(incrementActions())
+store.dispatch(incrementActions())
+store.dispatch(incrementActions())
+store.dispatch(incrementActions())
+store.dispatch(decrementActions())
+store.dispatch(resetActions())
+store.dispatch(incrementActions())
 store.dispatch(incrementCounterByValue(5))
