@@ -8,6 +8,7 @@ const { createStore } = require("redux");
 
 const INCREMENT = 'Increment';
 const DECREMENT = 'Decrement';
+const RESET = 'Reset';
 const INCREMENT_BY_VALUE = 'IncrementByValue';
 
 
@@ -86,10 +87,10 @@ store.subscribe(() => {
     console.log('Object>>', store.getState())
 })
 
-// store.dispatch(incrementActions())
-// store.dispatch(incrementActions())
-// store.dispatch(incrementActions())
-// store.dispatch(decrementActions())
-// store.dispatch(resetActions())
-// store.dispatch(incrementActions())
+store.dispatch(incrementActions())
+store.dispatch(incrementActions())
+store.dispatch(incrementActions())
+store.dispatch(decrementActions())
+store.dispatch(resetActions())
+store.dispatch(incrementActions())
 store.dispatch(incrementCounterByValue(5))
