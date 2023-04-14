@@ -12,7 +12,6 @@ const RESET = 'Reset';
 const INCREMENT_BY_VALUE = 'IncrementByValue';
 
 
-INCREMENT_BY_VALUE
 
 const initialState = {
     count: 0
@@ -71,7 +70,6 @@ const counterReducer = (state = initialState, action) => {
                 ...state,
                 count: state.count + action.payload,
             }
-
 
         default:
             state;
