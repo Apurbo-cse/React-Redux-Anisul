@@ -50,7 +50,6 @@ const productReducer = (state = initialProductState, action) => {
 
 
 
-
 // store
 const store = createStore(productReducer, applyMiddleware(logger));
 store.subscribe(() => {
